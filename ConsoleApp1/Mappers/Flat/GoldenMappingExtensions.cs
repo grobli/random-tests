@@ -12,8 +12,8 @@ public static class GoldenMappingExtensions
             Name = golden.Name,
             Age = golden.Age,
             Race = golden.Race,
-            Pups = golden.Pups.ToPupsCollectionDto(),
-            Partner = golden.Partner?.ToPartnerOneOf(),
+            Pups = golden.Pups.ToCanineOneOfCollection(),
+            Partner = golden.Partner?.ToCanineOneOf(),
             HappinessLevel = golden.HappinessLevel
         };
     }
@@ -26,8 +26,8 @@ public static class GoldenMappingExtensions
             Name = goldenFlatDto.Name,
             Age = goldenFlatDto.Age,
             HappinessLevel = goldenFlatDto.HappinessLevel,
-            Pups = goldenFlatDto.Pups.FromPupsCollectionDto(),
-            Partner = goldenFlatDto.Partner?.FromPartnerOneOf()
+            Pups = goldenFlatDto.Pups.FromCanineOneOfCollection(),
+            Partner = goldenFlatDto.Partner?.FromCanineOneOf()
         };
     }
 }

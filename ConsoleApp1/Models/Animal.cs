@@ -1,5 +1,9 @@
+using System.Text.Json.Serialization;
+
 namespace ConsoleApp1.Models;
 
+[JsonDerivedType(typeof(Canine), nameof(Canine))]
+[JsonDerivedType(typeof(Golden), nameof(Golden))]
 public record Animal
 {
     public required string Name { get; set; }
@@ -8,8 +12,8 @@ public record Animal
 
 public record Canine : Animal
 {
-    public Canine? Partner { get; set; }
     public string Race { get; }
+    public Canine? Partner { get; set; }
     public IList<Canine> Pups { get; set; } = [];
 
     public Canine(string race)
